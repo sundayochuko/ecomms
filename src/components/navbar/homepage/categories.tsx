@@ -25,7 +25,9 @@ const Categories = () => {
             />
           </div>
           {/* <div className="absolute top-0 h-[300px] w-full bg-black opacity-40 "></div> */}
-          <div className=" absolute bottom-0 h-[100px] w-full bg-white"></div>
+          <div className=" absolute bottom-0 h-[100px] w-full bg-white">
+            <h3>categories</h3>
+          </div>
         </div>
       </div>
     </div>
