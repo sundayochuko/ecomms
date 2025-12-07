@@ -6,7 +6,7 @@ const LocalproductSection = () => {
     <div className="h-full w-full   mt-30  flex flex-col items-center justify-center bg-green-50">
       <div className="flex flex-col items-center justify-center text-black">
         <h1 className="text-3xl font-bold text-greencolor">
-          Local Luxembourg Products{" "}
+          Local Luxembourg Products
         </h1>
         <p className="text-[20px]">The best local product </p>
       </div>

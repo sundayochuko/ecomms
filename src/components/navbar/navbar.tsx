@@ -1,10 +1,22 @@
+"use client";
+
 import Image from "next/image";
 import { MdAccountCircle } from "react-icons/md";
 import { PiShoppingCartLight } from "react-icons/pi";
+import { GiHamburgerMenu } from "react-icons/gi";
+import Menu from "./menu";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const tooggleIsOpen = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <div className="h-[70px] w-full flex flex-col ">
+    <div className="fixed top-0 z-50 h-[70px] w-full flex flex-col bg-background">
+      {/* Top */}
       <div className="h-15 w-full flex items-center justify-between px-8">
         <Image
           src="/cactus-logo.jpg"
@@ -30,7 +42,8 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="h-5 w-full flex items-center justify-center px-8 ">
+      {/* bottom */}
+      <div className="relative h-5 w-full flex items-center justify-center px-8  ">
         <ul className="flex gap-8 ">
           <li>Home</li>
           <li>Shop</li>
@@ -38,6 +51,14 @@ const Navbar = () => {
           <li>Weekly Deals</li>
           <li>Local Products</li>
         </ul>
+
+        <div className="absolute left-9 ">
+          <GiHamburgerMenu className="text-2xl" />
+        </div>
+        {/* Menu */}
+        <div className="fixed top-13 left-0 z-50 hidden ">
+          <Menu tooggleIsOpen={tooggleIsOpen} />
+        </div>
       </div>
     </div>
   );
