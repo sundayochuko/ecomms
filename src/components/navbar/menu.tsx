@@ -55,7 +55,9 @@ const Menu = ({ tooggleIsOpen }: menuProps) => {
     },
   ];
   return (
-    <div className=" h-[650px] w-[280px] bg-background px-4 pt-2 border-r-2 border-gray-300 ">
+    <div
+      className={`h-[650px] w-[280px] bg-background px-4 pt-2 border-r-2 border-gray-300 `}
+    >
       <div className="flex items-center  justify-between">
         <h1 className="text-[20px] font-bold ">Categories</h1>
         <button onClick={tooggleIsOpen}>

@@ -6,6 +6,7 @@ import { PiShoppingCartLight } from "react-icons/pi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Menu from "./menu";
 import { useState } from "react";
+import Cartmodal from "./cartmodal";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,9 +16,9 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed top-0 z-50 h-[70px] w-full flex flex-col bg-background">
+    <div className="fixed top-0 z-40 h-[70px] w-full flex flex-col bg-background">
       {/* Top */}
-      <div className="h-15 w-full flex items-center justify-between px-8">
+      <div className="relative h-15 w-full flex items-center justify-between px-8">
         <Image
           src="/cactus-logo.jpg"
           alt="/"
@@ -29,21 +30,28 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="search"
-            className="w-[800px] h-9 px-5 text-black font-bold rounded-2xl  border-2 border-foreground outline-none"
+            className="w-[600px] h-9 px-5 text-black font-bold rounded-2xl  border-2 border-foreground outline-none"
           />
         </div>
-        <div className="flex gap-5">
+        <div className=" flex gap-5">
           <div className="flex items-center">
             <MdAccountCircle className="text-3xl text-greencolor" />
             <p className=" text-greencolor">Log in</p>
           </div>
-          <div>
+          <button onClick={tooggleIsOpen}>
             <PiShoppingCartLight className="text-3xl text-greencolor" />
-          </div>
+          </button>
+        </div>
+        <div
+          className={`absolute top-0 right-0 ${
+            isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <Cartmodal togglemodal={tooggleIsOpen} ModalOpen={isOpen} />
         </div>
       </div>
       {/* bottom */}
-      <div className="relative h-5 w-full flex items-center justify-center px-8  ">
+      <div className="relative h-5 w-full flex  items-center justify-center px-8">
         <ul className="flex gap-8 ">
           <li>Home</li>
           <li>Shop</li>
@@ -52,11 +60,11 @@ const Navbar = () => {
           <li>Local Products</li>
         </ul>
 
-        <div className="absolute left-9 ">
+        <button onClick={tooggleIsOpen} className="absolute left-9 flex">
           <GiHamburgerMenu className="text-2xl" />
-        </div>
+        </button>
         {/* Menu */}
-        <div className="fixed top-13 left-0 z-50 hidden ">
+        <div className={`fixed top-13 left-0 z-50 hidden `}>
           <Menu tooggleIsOpen={tooggleIsOpen} />
         </div>
       </div>
