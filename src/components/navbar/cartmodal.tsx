@@ -1,55 +1,31 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { MdOutlineDelete } from "react-icons/md";
 import { RiStore2Line } from "react-icons/ri";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { RiArrowDropUpLine } from "react-icons/ri";
+import { useGlobalContext } from "../context/globalContext";
 
-type cartmodal = {
-  togglemodal: () => void;
-  ModalOpen: boolean;
-};
-
-const Cartmodal = ({ togglemodal, ModalOpen }: cartmodal) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const [selectLocation, setSelectLocation] = useState<any>(null);
-
-  const storeLocations = [
-    {
-      name: "Cactus Belle Etoile ",
-      address: "Route d'Arlon, 8050 Bertrange",
-    },
-    {
-      name: "Cactus Windhof",
-      address: "1 Route d'Arlon, 8399 Windhof Koerich",
-    },
-    {
-      name: "Cactus Howald",
-      address: "40 Rue des Scillas, 2529 Howald Hesperange",
-    },
-
-    {
-      name: " Cactus hobbi Diekirch",
-      address: "Rte d'Ettelbruck, 9230 Diekirch",
-    },
-  ];
-
-  const tooggleIsOpen = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleSelect = (loaction: any) => {
-    setSelectLocation(loaction);
-    setIsOpen(false);
-  };
+const Cartmodal = () => {
+  const {
+    onToggle,
+    showCart,
+    dropdown,
+    setShowCart,
+    handleSelect,
+    selectLocation,
+    storeLocations,
+  } = useGlobalContext();
 
   return (
     <div className="relative flex flex-col h-[700px] w-[400px] z-50 bg-background overflow-hidden ">
-      <button onClick={togglemodal} className="absolute top-2 left-3">
+      {/* closeCartIcon */}
+      <button
+        onClick={() => onToggle("close_modal")}
+        className="absolute top-2 left-3"
+      >
         <IoCloseSharp className="text-2xl" />
       </button>
       <h1 className="text-2xl text-center mt-2">Shopping Cart</h1>
@@ -88,7 +64,7 @@ const Cartmodal = ({ togglemodal, ModalOpen }: cartmodal) => {
         <div className="rleative  mt-2">
           {/* Selected Item Display */}
           <button
-            onClick={tooggleIsOpen}
+            onClick={() => onToggle("dropdown")}
             className=" h-16 w-full flex items-center justify-between px-1.5 border-2 border-greencolor rounded-[10px]  bg-green-100"
           >
             {selectLocation ? (
@@ -101,11 +77,11 @@ const Cartmodal = ({ togglemodal, ModalOpen }: cartmodal) => {
             )}
             {/* icons */}
             <div className="text-3xl text-gray-500">
-              {isOpen ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
+              {dropdown ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
             </div>
           </button>
           {/* Dropdown Menu */}
-          {isOpen && (
+          {dropdown && (
             <div className="absolute z-20 h-[200px] w-[350px] flex flex-col overflow-y-scroll cursor-pointer  mt-3 pb-5 bg-background">
               {storeLocations.map((location, index) => (
                 <div

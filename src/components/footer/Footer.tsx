@@ -5,7 +5,7 @@ import { FaFacebookF } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="h-[250px] w-full mt-40 py-10 px-20 flex flex-col   bg-greencolor text-background">
+    <div className="h-[250px] w-full  py-10 px-20 flex flex-col   bg-greencolor text-background">
       <div className="flex justify-between">
         <div>
           <h1 className="text-[18px] mb-4 font-bold">Store Locator</h1>

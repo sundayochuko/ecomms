@@ -4,7 +4,10 @@ import { GiFarmer } from "react-icons/gi";
 
 const Categories = () => {
   return (
-    <div className="h-[500px] w-full flex flex-col items-center mt-30 ">
+    <div
+      id="Categories"
+      className="h-[500px] w-full flex flex-col items-center mt-30 "
+    >
       <div className="flex flex-col items-center">
         <h1 className="text-3xl font-bold text-greencolor">
           Shop by Categories

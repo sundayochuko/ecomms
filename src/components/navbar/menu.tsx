@@ -9,48 +9,60 @@ import { LiaGlassMartiniSolid } from "react-icons/lia";
 import { LuDog } from "react-icons/lu";
 import { LiaTagSolid } from "react-icons/lia";
 import { IoCloseSharp } from "react-icons/io5";
+import { useContext } from "react";
+import { useGlobalContext } from "../context/globalContext";
 
-type menuProps = {
-  tooggleIsOpen: () => void;
-};
-
-const Menu = ({ tooggleIsOpen }: menuProps) => {
+const Menu = () => {
+  const { onToggle } = useGlobalContext();
   const menu = [
     {
       icon: GiFarmer,
+      href: "/localproducts",
       label: "Local Products",
     },
     {
       icon: MdOutlineBakeryDining,
+      href: "/bakery",
       label: "Bakery",
     },
-    { icon: LuFlower2, label: "Fruits & Vegetables" },
+    {
+      icon: LuFlower2,
+      href: "/fruits-&-vegetables",
+      label: "Fruits & Vegetables",
+    },
     {
       icon: PiForkKnifeBold,
+      href: "/meat-&-fish",
       label: "Meat & Fish",
     },
     {
       icon: BsCup,
+      href: "/dairy-&-eggs",
       label: "Dairy & Eggs",
     },
     {
       icon: BiCheese,
+      href: "/cheese-&-coldcuts",
       label: "Cheese & Cold cuts",
     },
     {
       icon: VscGift,
-      label: "Snaccks & Sweets",
+      href: "/snacks-&-sweets",
+      label: "Snacks & Sweets",
     },
     {
       icon: LiaGlassMartiniSolid,
+      href: "/drinks-&-beverages",
       label: "Drinks & Beverages",
     },
     {
       icon: LuDog,
+      href: "/pet-supplies",
       label: "Pet Supplies",
     },
     {
       icon: LiaTagSolid,
+      href: "/weekly-promotions",
       label: "Weekly Promotions",
     },
   ];
@@ -60,7 +72,7 @@ const Menu = ({ tooggleIsOpen }: menuProps) => {
     >
       <div className="flex items-center  justify-between">
         <h1 className="text-[20px] font-bold ">Categories</h1>
-        <button onClick={tooggleIsOpen}>
+        <button onClick={() => onToggle("close_categories")}>
           <IoCloseSharp className="text-2xl" />
         </button>
       </div>
@@ -68,9 +80,9 @@ const Menu = ({ tooggleIsOpen }: menuProps) => {
       <ul className="flex flex-col mt-7">
         {menu.map((m, index) => {
           return (
-            <li key={index} className="mb-8">
+            <a key={index} href={m.href} className="mb-8">
               {m.label}
-            </li>
+            </a>
           );
         })}
       </ul>

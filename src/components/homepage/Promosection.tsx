@@ -4,7 +4,10 @@ import { FaArrowRight } from "react-icons/fa";
 
 const Promosection = () => {
   return (
-    <div className=" mt-10 mx-10  ">
+    <div
+      id="promotion"
+      className="h-[650px] flex items-center justify-center mt-20 mx-10 "
+    >
       <div className="flex gap-30 h-[500px] w-full p-8   bg-orange-600 text-white rounded-2xl shadow-2xl shadow-gray-500">
         <div className=" w-[60%]">
           <div className=" relative h-8 w-[200px] flex items-center  justify-center  gap-3   rounded-2xl overflow-hidden ">
@@ -55,7 +58,7 @@ const Promosection = () => {
               <span className="text-[11px] font-bold ">-20%</span>
             </div>
             <div className="absolute bottom-0 h-20 w-full p-3 bg-white text-black">
-              <h3 className="font-bold">Coffee Beans</h3>
+              <h3 className="font-bold">Coffee machine</h3>
               <div className="flex gap-2  items-center">
                 <p className="text-[20px] font-bold text-orange-600">
                   &#8364;7.56
@@ -76,7 +79,7 @@ const Promosection = () => {
               <span className="text-[11px] font-bold ">-20%</span>
             </div>
             <div className="absolute bottom-0 h-20 w-full p-3 bg-white text-black">
-              <h3 className="font-bold">Coffee Beans</h3>
+              <h3 className="font-bold">Chocolate</h3>
               <div className="flex gap-2  items-center">
                 <p className="text-[20px] font-bold text-orange-600">
                   &#8364;7.56

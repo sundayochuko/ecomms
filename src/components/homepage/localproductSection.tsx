@@ -3,7 +3,10 @@ import { FaCartPlus } from "react-icons/fa6";
 
 const LocalproductSection = () => {
   return (
-    <div className="h-full w-full   mt-30  flex flex-col items-center justify-center bg-green-50">
+    <div
+      id="local-products"
+      className="h-full w-full   mt-30  flex flex-col items-center justify-center bg-green-50"
+    >
       <div className="flex flex-col items-center justify-center text-black">
         <h1 className="text-3xl font-bold text-greencolor">Local Products</h1>
         <p className="text-[20px]">Best selling local product </p>
@@ -23,7 +26,7 @@ const LocalproductSection = () => {
             <span className="text-[11px] text-white font-bold">Local</span>
           </div>
           <div className="absolute bottom-0 h-[95px] w-full p-3 bg-white text-black">
-            <h3 className="font-bold">Beef</h3>
+            <h3 className="font-bold">Porc</h3>
             <div className="flex items-center justify-between">
               <div className="flex flex-col">
                 <p className="text-[18px] font-bold text-greencolor">

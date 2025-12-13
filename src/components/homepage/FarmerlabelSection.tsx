@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const FarmerlabelSection = () => {
   return (
-    <div className="h-full mx-10 mt-20">
+    <div className="h-full mx-10  my-30">
       <h1 className="text-2xl font-bold text-greencolor flex items-center justify-center">
         Vum Lëtzebuerger Bauer
       </h1>

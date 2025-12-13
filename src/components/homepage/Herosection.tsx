@@ -3,7 +3,10 @@ import React from "react";
 
 const Herosection = () => {
   return (
-    <div className="h-[400px] w-full flex bg-linear-to-b from-green-200 via-white to-green-50">
+    <div
+      id="hero"
+      className="h-[400px] w-full flex bg-linear-to-b from-green-200 via-white to-green-50"
+    >
       <div className="w-[60%] h-full  pl-10 pt-30">
         <h1 className="text-7xl font-medium">
           Fresh Produce & <br /> Local Products
