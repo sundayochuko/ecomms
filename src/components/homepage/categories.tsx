@@ -21,13 +21,12 @@ const Categories = () => {
       {/* cards */}
       <div className="w-full max-w-7xl mt-10 flex flex-wrap items-center justify-center gap-4 md:gap-6">
         <Link href="/localproducts" className="relative h-[280px] w-full sm:w-[350px] md:w-[400px] rounded-2xl border-2 border-gray-400 hover:border-green-400 shadow-2xl shadow-gray-500 overflow-hidden cursor-pointer transition-all">
-          <div className="h-[300px]">
+          <div className="h-full w-full relative">
             <Image
               src="/images/local-product.jpg"
-              alt="/"
-              width={600}
-              height={200}
-              className="h-full w-full bg-cover bg-center mr-5 transition-transform duration-300 hover:scale-110"
+              alt="Local Products"
+              fill
+              className="object-cover object-center transition-transform duration-300 hover:scale-110"
             />
           </div>
           <div className="absolute bottom-0 h-20 w-full flex items-center justify-between px-8  bg-white">
@@ -42,13 +41,12 @@ const Categories = () => {
           </div>
         </Link>
         <Link href="/fruits-&-vegetables" className="relative h-[280px] w-full sm:w-[350px] md:w-[400px] rounded-2xl border-2 border-gray-400 hover:border-green-400 shadow-2xl shadow-gray-500 overflow-hidden cursor-pointer transition-all">
-          <div className="h-[300px]">
+          <div className="h-full w-full relative">
             <Image
               src="/images/fruit&vegetables.jpg"
-              alt="/"
-              width={600}
-              height={200}
-              className="h-full w-full bg-cover bg-center mr-5 transition-transform duration-300 hover:scale-110"
+              alt="Fruits and Vegetables"
+              fill
+              className="object-cover object-center transition-transform duration-300 hover:scale-110"
             />
           </div>
           <div className="absolute bottom-0 h-20 w-full flex items-center justify-between px-8  bg-white">
@@ -63,13 +61,12 @@ const Categories = () => {
           </div>
         </Link>
         <Link href="/bakery" className="relative h-[280px] w-full sm:w-[350px] md:w-[400px] rounded-2xl border-2 border-gray-400 hover:border-green-400 shadow-2xl shadow-gray-500 overflow-hidden cursor-pointer transition-all">
-          <div className="h-[300px]">
+          <div className="h-full w-full relative">
             <Image
               src="/images/bakery.jpg"
-              alt="/"
-              width={600}
-              height={200}
-              className="h-full w-full bg-cover bg-center mr-5 transition-transform duration-300 hover:scale-110"
+              alt="Bakery"
+              fill
+              className="object-cover object-center transition-transform duration-300 hover:scale-110"
             />
           </div>
           <div className="absolute bottom-0 h-20 w-full flex items-center justify-between px-8  bg-white">
