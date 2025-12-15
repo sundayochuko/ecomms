@@ -88,7 +88,7 @@ const Cartmodal = () => {
   };
 
   return (
-    <div className="relative flex flex-col h-screen w-[400px] z-50 bg-background overflow-y-auto">
+    <div className="relative flex flex-col h-screen w-full sm:w-[400px] z-50 bg-background overflow-y-auto shadow-2xl">
       {/* closeCartIcon */}
       <button
         onClick={() => onToggle("close_modal")}

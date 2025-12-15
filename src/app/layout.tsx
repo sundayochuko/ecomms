@@ -28,17 +28,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-x-hidden">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
-        <ConvexProvider>
-          <GlobalContextProvider>
-            <Navbar />
-            {children}
-            <Footer />
-          </GlobalContextProvider>
-        </ConvexProvider>
+        <div className="w-full overflow-x-hidden">
+          <ConvexProvider>
+            <GlobalContextProvider>
+              <Navbar />
+              {children}
+              <Footer />
+            </GlobalContextProvider>
+          </ConvexProvider>
+        </div>
       </body>
     </html>
   );

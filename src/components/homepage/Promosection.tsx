@@ -24,27 +24,27 @@ const Promosection = () => {
     >
       <div className="max-w-7xl w-full flex flex-col md:flex-row gap-8 p-6 md:p-8 bg-orange-600 text-white rounded-2xl shadow-2xl shadow-gray-500">
         <div className="w-full md:w-[60%] flex flex-col justify-center">
-          <div className="relative h-8 w-[200px] flex items-center justify-center gap-3 rounded-2xl overflow-hidden">
+          <div className="relative h-8 w-full max-w-[200px] flex items-center justify-center gap-3 rounded-2xl overflow-hidden">
             <FaFire />
             <span>Limited Time Offer</span>
-            <div className="absolute top-0 bg-white opacity-60 h-8 w-[200px]"></div>
+            <div className="absolute top-0 bg-white opacity-60 h-8 w-full"></div>
           </div>
 
-          <h1 className="text-6xl font-bold my-5">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold my-5">
             Weekly Deals <br />
             <span className="text-yellow-200">Up to {maxDiscount}% off</span>
           </h1>
-          <p>
+          <p className="text-sm md:text-base">
             Don't miss out on our handpicked weekly promotions, fresh deals
             every week on your favorite products. limited quantities available!
           </p>
           <Link href="/weekly-promotions">
-            <button className="h-12 my-5 flex w-[210px] items-center justify-center gap-3 rounded-[10px] bg-white text-amber-700 font-bold">
+            <button className="h-12 my-5 flex w-full max-w-[210px] items-center justify-center gap-3 rounded-[10px] bg-white text-amber-700 font-bold">
               Shop Weekly Deals <FaArrowRight />
             </button>
           </Link>
           <div className="border-t-2 border-gray-50 opacity-30 w-full my-8"></div>
-          <div className="w-[480px] flex justify-between">
+          <div className="w-full max-w-[480px] flex flex-wrap justify-between gap-4">
             <div>
               <h2 className="text-2xl font-bold">{totalProducts}+</h2>
               <p className="text-gray-300">Products on Sale</p>

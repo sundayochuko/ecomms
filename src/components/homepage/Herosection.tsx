@@ -8,8 +8,8 @@ const Herosection = () => {
       id="hero"
       className="min-h-screen w-full flex items-center justify-center bg-gradient-to-b from-green-200 via-white to-green-50 px-4 py-10"
     >
-      <div className="max-w-7xl w-full flex items-center gap-8">
-        <div className="w-full md:w-[60%] flex flex-col justify-center pl-4 md:pl-10">
+      <div className="max-w-7xl w-full flex flex-col md:flex-row items-center gap-8">
+        <div className="w-full md:w-[60%] flex flex-col justify-center px-4 md:pl-10">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-4">
             Fresh Produce & <br /> Local Products
           </h1>

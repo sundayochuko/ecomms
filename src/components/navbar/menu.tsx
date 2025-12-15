@@ -72,7 +72,7 @@ const Menu = () => {
     },
   ];
   return (
-    <div className="h-full w-[280px] md:w-[320px] bg-white px-4 pt-6 border-r-2 border-gray-200 overflow-y-auto">
+    <div className="h-full w-[280px] sm:w-[320px] bg-white px-4 pt-6 border-r-2 border-gray-200 overflow-y-auto">
       <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200">
         <h1 className="text-xl font-bold text-gray-800">Categories</h1>
         <button

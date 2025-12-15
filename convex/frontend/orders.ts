@@ -1,5 +1,42 @@
-import { mutation } from "../_generated/server";
+import { query, mutation } from "../_generated/server";
 import { v } from "convex/values";
+
+// Frontend: Get order by orderId
+export const getByOrderId = query({
+  args: { orderId: v.string() },
+  handler: async (ctx, args) => {
+    const order = await ctx.db
+      .query("orders")
+      .filter((q) => q.eq(q.field("orderId"), args.orderId))
+      .first();
+    
+    if (!order) {
+      return null;
+    }
+
+    // Get sales/order items for this order
+    const sales = await ctx.db
+      .query("sales")
+      .withIndex("by_order", (q) => q.eq("orderId", args.orderId))
+      .collect();
+
+    // Enrich with product data
+    const items = await Promise.all(
+      sales.map(async (sale) => {
+        const product = await ctx.db.get(sale.productId);
+        return {
+          ...sale,
+          product: product || null,
+        };
+      })
+    );
+
+    return {
+      ...order,
+      items,
+    };
+  },
+});
 
 // Frontend: Create order (for customer purchases)
 export const createOrder = mutation({
