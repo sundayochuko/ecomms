@@ -5,22 +5,44 @@ import { v } from "convex/values";
 export const getByOrderId = query({
   args: { orderId: v.string() },
   handler: async (ctx, args) => {
+    if (!args.orderId || args.orderId.trim() === "") {
+      return null;
+    }
+
     try {
-      // Use index for better performance
-      const order = await ctx.db
-        .query("orders")
-        .withIndex("by_orderId", (q) => q.eq("orderId", args.orderId))
-        .first();
+      // Try with index first, fallback to filter if index doesn't exist
+      let order;
+      try {
+        order = await ctx.db
+          .query("orders")
+          .withIndex("by_orderId", (q: any) => q.eq("orderId", args.orderId))
+          .first();
+      } catch (indexError) {
+        // Index might not exist yet, fallback to filter
+        order = await ctx.db
+          .query("orders")
+          .filter((q: any) => q.eq(q.field("orderId"), args.orderId))
+          .first();
+      }
       
       if (!order) {
         return null;
       }
 
       // Get sales/order items for this order
-      const sales = await ctx.db
-        .query("sales")
-        .withIndex("by_order", (q) => q.eq("orderId", args.orderId))
-        .collect();
+      let sales;
+      try {
+        sales = await ctx.db
+          .query("sales")
+          .withIndex("by_order", (q: any) => q.eq("orderId", args.orderId))
+          .collect();
+      } catch (indexError) {
+        // Fallback to filter if index doesn't exist
+        sales = await ctx.db
+          .query("sales")
+          .filter((q: any) => q.eq(q.field("orderId"), args.orderId))
+          .collect();
+      }
 
       // Enrich with product data
       const items = await Promise.all(
@@ -39,7 +61,6 @@ export const getByOrderId = query({
             };
           } catch (error) {
             // If product lookup fails, return sale without product
-            console.error(`Error fetching product ${sale.productId}:`, error);
             return {
               _id: sale._id,
               productId: sale.productId,
@@ -71,8 +92,9 @@ export const getByOrderId = query({
         items,
       };
     } catch (error) {
+      // Log error but return null instead of throwing to prevent UI crashes
       console.error("Error in getByOrderId:", error);
-      throw new Error(`Failed to fetch order: ${error instanceof Error ? error.message : String(error)}`);
+      return null;
     }
   },
 });
