@@ -116,11 +116,11 @@ const Navbar = () => {
               )}
             </button>
 
-            {/* Mobile Menu Button */}
+            {/* Categories Menu Button */}
             <button
               onClick={() => onToggle("cartegories_modal")}
-              className="md:hidden p-2 text-gray-700 hover:text-greencolor transition-colors"
-              aria-label="Menu"
+              className="p-2 text-gray-700 hover:text-greencolor transition-colors"
+              aria-label="Categories Menu"
             >
               <GiHamburgerMenu className="text-2xl" />
             </button>
