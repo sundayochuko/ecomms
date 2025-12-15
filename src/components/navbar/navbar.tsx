@@ -178,10 +178,16 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                href="/localproducts"
+                href="/"
+                onClick={(e) => {
+                  if (pathname === "/") {
+                    e.preventDefault();
+                    handleSroll("local-products");
+                  }
+                }}
                 className={`px-3 py-2 text-sm font-medium transition-colors ${
-                  isActive("/localproducts")
-                    ? "text-greencolor border-b-2 border-greencolor"
+                  pathname === "/"
+                    ? "text-gray-700 hover:text-greencolor"
                     : "text-gray-700 hover:text-greencolor"
                 }`}
               >
