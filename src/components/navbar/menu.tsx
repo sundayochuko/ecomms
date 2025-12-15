@@ -1,20 +1,25 @@
+import Link from "next/link";
 import { GiFarmer } from "react-icons/gi";
 import { MdOutlineBakeryDining } from "react-icons/md";
 import { LuFlower2 } from "react-icons/lu";
 import { PiForkKnifeBold } from "react-icons/pi";
-import { BsCup } from "react-icons/bs";
+import { BsCup, BsGrid3X3 } from "react-icons/bs";
 import { BiCheese } from "react-icons/bi";
 import { VscGift } from "react-icons/vsc";
 import { LiaGlassMartiniSolid } from "react-icons/lia";
 import { LuDog } from "react-icons/lu";
 import { LiaTagSolid } from "react-icons/lia";
 import { IoCloseSharp } from "react-icons/io5";
-import { useContext } from "react";
 import { useGlobalContext } from "../context/globalContext";
 
 const Menu = () => {
   const { onToggle } = useGlobalContext();
   const menu = [
+    {
+      icon: BsGrid3X3,
+      href: "/products",
+      label: "All Products",
+    },
     {
       icon: GiFarmer,
       href: "/localproducts",
@@ -67,22 +72,31 @@ const Menu = () => {
     },
   ];
   return (
-    <div
-      className={`h-[650px] w-[280px] bg-background px-4 pt-2 border-r-2 border-gray-300 `}
-    >
-      <div className="flex items-center  justify-between">
-        <h1 className="text-[20px] font-bold ">Categories</h1>
-        <button onClick={() => onToggle("close_categories")}>
+    <div className="h-full w-[280px] md:w-[320px] bg-white px-4 pt-6 border-r-2 border-gray-200 overflow-y-auto">
+      <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200">
+        <h1 className="text-xl font-bold text-gray-800">Categories</h1>
+        <button
+          onClick={() => onToggle("close_categories")}
+          className="p-1 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors"
+          aria-label="Close menu"
+        >
           <IoCloseSharp className="text-2xl" />
         </button>
       </div>
 
-      <ul className="flex flex-col mt-7">
+      <ul className="flex flex-col gap-1">
         {menu.map((m, index) => {
+          const Icon = m.icon;
           return (
-            <a key={index} href={m.href} className="mb-8">
-              {m.label}
-            </a>
+            <Link
+              key={index}
+              href={m.href}
+              onClick={() => onToggle("close_categories")}
+              className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-greencolor rounded-lg transition-all group"
+            >
+              <Icon className="text-xl text-gray-500 group-hover:text-greencolor transition-colors" />
+              <span className="font-medium">{m.label}</span>
+            </Link>
           );
         })}
       </ul>

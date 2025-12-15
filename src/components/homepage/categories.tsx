@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 import { GiFarmer } from "react-icons/gi";
 
@@ -6,7 +7,7 @@ const Categories = () => {
   return (
     <div
       id="Categories"
-      className="h-[500px] w-full flex flex-col items-center mt-30 "
+      className="min-h-[80vh] w-full flex flex-col items-center justify-center py-16 px-4"
     >
       <div className="flex flex-col items-center">
         <h1 className="text-3xl font-bold text-greencolor">
@@ -18,8 +19,8 @@ const Categories = () => {
         </p>
       </div>
       {/* cards */}
-      <div className="h-[280px] w-[1400px] mt-10 flex items-center justify-center  gap-2 ">
-        <div className="relative h-full w-[400px] rounded-2xl border-2 border-gray-400 hover:border-green-400 shadow-2xl shadow-gray-500  overflow-hidden">
+      <div className="w-full max-w-7xl mt-10 flex flex-wrap items-center justify-center gap-4 md:gap-6">
+        <Link href="/localproducts" className="relative h-[280px] w-full sm:w-[350px] md:w-[400px] rounded-2xl border-2 border-gray-400 hover:border-green-400 shadow-2xl shadow-gray-500 overflow-hidden cursor-pointer transition-all">
           <div className="h-[300px]">
             <Image
               src="/images/cart-grocery.jpg"
@@ -39,8 +40,8 @@ const Categories = () => {
 
             <FaArrowRight className="text-gray-400" />
           </div>
-        </div>
-        <div className="relative h-full w-[400px] rounded-2xl border-2 border-gray-400 hover:border-green-400 shadow-2xl shadow-gray-500  overflow-hidden">
+        </Link>
+        <Link href="/fruits-&-vegetables" className="relative h-[280px] w-full sm:w-[350px] md:w-[400px] rounded-2xl border-2 border-gray-400 hover:border-green-400 shadow-2xl shadow-gray-500 overflow-hidden cursor-pointer transition-all">
           <div className="h-[300px]">
             <Image
               src="/images/cart-grocery.jpg"
@@ -60,8 +61,8 @@ const Categories = () => {
 
             <FaArrowRight className="text-gray-400" />
           </div>
-        </div>
-        <div className="relative h-full w-[400px] rounded-2xl border-2 border-gray-400 hover:border-green-400 shadow-2xl shadow-gray-500  overflow-hidden">
+        </Link>
+        <Link href="/bakery" className="relative h-[280px] w-full sm:w-[350px] md:w-[400px] rounded-2xl border-2 border-gray-400 hover:border-green-400 shadow-2xl shadow-gray-500 overflow-hidden cursor-pointer transition-all">
           <div className="h-[300px]">
             <Image
               src="/images/cart-grocery.jpg"
@@ -81,15 +82,17 @@ const Categories = () => {
 
             <FaArrowRight className="text-gray-400" />
           </div>
-        </div>
+        </Link>
       </div>
       <div className="mt-7">
-        <button className=" flex items-center gap-4 bg-black text-white  py-4 px-8 rounded-2xl">
-          View All Categories
-          <span>
-            <FaArrowRight className="text-white" />
-          </span>
-        </button>
+        <Link href="/products">
+          <button className="flex items-center gap-4 bg-black text-white py-4 px-8 rounded-2xl hover:bg-gray-800 transition-all cursor-pointer">
+            View All Categories
+            <span>
+              <FaArrowRight className="text-white" />
+            </span>
+          </button>
+        </Link>
       </div>
     </div>
   );

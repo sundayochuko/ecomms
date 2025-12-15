@@ -6,7 +6,7 @@ import Promosection from "@/components/homepage/Promosection";
 
 export default function Home() {
   return (
-    <div className="h-full w-full mt-[70px] ">
+    <div className="h-full w-full pt-16 md:pt-20">
       <Herosection />
       <Categories />
       <Promosection />
